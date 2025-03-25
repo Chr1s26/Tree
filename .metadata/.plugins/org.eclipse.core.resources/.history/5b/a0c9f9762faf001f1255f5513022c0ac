@@ -1,0 +1,63 @@
+package OperationOnBinaryTree;
+
+import BinaryTree.TreeNode;
+
+public class deletion {
+	
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(5);
+		
+		root.left = new TreeNode(3);
+		root.left.left = new TreeNode(2);
+		root.left.right = new TreeNode(4);
+		
+		root.right = new TreeNode(7);
+		root.right.left = new TreeNode(6);
+		root.right.right = new TreeNode(8);
+		
+		root = delete(root,7);
+		preOrderPrint(root);
+	}
+	
+	public static void preOrderPrint(TreeNode root) {
+		if(root == null) {
+			return;
+		}
+		
+		System.out.print(root.value);
+		preOrderPrint(root.left);
+		preOrderPrint(root.right);
+	}
+	
+	public static TreeNode delete(TreeNode root,int value) {
+		
+		if(root == null) {
+			return root;
+		}
+		
+		if(root.value > value) {
+			root.left = delete(root.left,value);
+		}else if(root.value < value) {
+			root.right = delete(root.right,value);
+		}else	{
+			if(root.left == null && root.right == null) {
+				root = null;
+			}
+			else if(root.left == null) {
+				root = root.right;
+			}
+			else if(root.right == null) {
+				root = root.left;
+			}else {
+				TreeNode temp = root.left;
+				root = root.right;
+				root.left = temp;
+			}
+		}
+		
+	
+		return root;
+		
+	}
+	
+}
