@@ -1,6 +1,6 @@
-package operationOnBinaryTree;
+package OperationOnBinaryTree;
 
-import binaryTree.TreeNode;
+import BinaryTree.TreeNode;
 
 public class deletion {
 	

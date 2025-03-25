@@ -1,4 +1,4 @@
-package operationOnBinaryTree;
+package OperationOnBinaryTree;
 
 import binaryTree.TreeNode;
 
